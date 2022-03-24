@@ -1,0 +1,24 @@
+---
+version: "3"
+
+volumes:
+  keys-data: {}
+
+services:
+  salt-master:
+    image: cdalvaro/docker-salt-master:3004
+    restart: unless-stopped
+    ports:
+      - 4505:4505
+      - 4506:4506
+    environment:
+      - TIMEZONE=Australia/Melbourne
+      - SALT_LOG_LEVEL
+      - SALT_LOG_ROTATE_FREQUENCY=weekly
+      - SALT_LOG_ROTATE_RETENTION=4
+    volumes:
+      - /home/pi/dotfiles/salt:/home/salt/data/srv/salt:ro
+      - /home/pi/dotfiles/salt/pillar:/home/salt/data/srv/pillar:ro
+      - keys-data:/home/salt/data/keys
+      - ./logs:/home/salt/data/logs
+      - ./config:/home/salt/data/config
