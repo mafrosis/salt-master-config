@@ -6,7 +6,9 @@ volumes:
 
 services:
   salt-master:
-    image: cdalvaro/docker-salt-master:3004
+    image: mafrosis/docker-salt-master
+    build:
+      context: .
     restart: unless-stopped
     ports:
       - 4505:4505
@@ -22,3 +24,6 @@ services:
       - keys-data:/home/salt/data/keys
       - ./logs:/home/salt/data/logs
       - ./config:/home/salt/data/config
+      - ./1password-connect/salt:/var/cache/salt/master/extmods
+    extra_hosts:
+      ringil: 192.168.1.198
