@@ -1,0 +1,3 @@
+[submodule "1password-connect"]
+	path = 1password-connect
+	url = https://github.com/mafrosis/1password-connect-config.git
