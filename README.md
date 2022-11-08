@@ -9,6 +9,24 @@ Config for running a Salt Master in docker, built on the fine work at
 
 Notes to remind me how to use Salt with a master and minions:
 
+
+### Add another minion
+
+Ensure that the master is configured in the minion config:
+```
+master: ringil
+```
+
+The new minion should show up with the following command.
+```
+> docker compose exec salt-master salt-key -A
+The following keys are going to be accepted:
+Unaccepted Keys:
+rand
+Proceed? [n/Y] Y
+Key for minion rand accepted.
+```
+
 ### View known minions
 ```
 > docker compose exec salt-master salt-key -L
