@@ -1,8 +1,7 @@
 ---
-version: "3"
-
 volumes:
   keys-data: {}
+  1pass-data: {}
 
 services:
   salt-master:
@@ -27,3 +26,17 @@ services:
       - ./1password-connect/salt:/var/cache/salt/master/extmods
     extra_hosts:
       ringil: 192.168.1.198
+    depends_on:
+      - 1password-api
+
+  1password-api:
+    extends:
+      file: 1password-connect/docker-compose.yml
+      service: api
+    depends_on:
+      - 1password-sync
+
+  1password-sync:
+    extends:
+      file: 1password-connect/docker-compose.yml
+      service: sync
