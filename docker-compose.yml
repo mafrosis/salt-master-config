@@ -5,9 +5,11 @@ volumes:
 
 services:
   salt-master:
-    image: mafrosis/docker-salt-master
+    image: mafrosis/docker-salt-master:${SALT_MASTER_VERSION}
     build:
       context: .
+      args:
+        SALT_MASTER_VERSION: ${SALT_MASTER_VERSION}
     restart: unless-stopped
     ports:
       - 4505:4505
