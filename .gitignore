@@ -1,3 +1,4 @@
 logs
 config
 1password-credentials.json
+config/ext_pillar.conf

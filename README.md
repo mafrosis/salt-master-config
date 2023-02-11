@@ -14,7 +14,7 @@ Notes to remind me how to use Salt with a master and minions:
 
 Ensure that the master is configured in the minion config:
 ```
-master: ringil
+master: locke
 ```
 
 The new minion should show up with the following command.
@@ -82,7 +82,7 @@ docker compose exec salt-master cat /etc/salt/master
 ## 1Password Connect
 
 A custom external pillar is submoduled from
-[`mafrosis/1password-connect`](https://github.com/mafrosis/1password-connect-config).
+[`mafrosis/1password-connect-config`](https://github.com/mafrosis/1password-connect-config).
 
 For this to work you need to add following to `config/ext_pillar.conf`:
 ```

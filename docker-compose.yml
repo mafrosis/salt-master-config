@@ -20,14 +20,14 @@ services:
       - SALT_LOG_ROTATE_FREQUENCY=weekly
       - SALT_LOG_ROTATE_RETENTION=4
     volumes:
-      - /home/pi/dotfiles/salt:/home/salt/data/srv/salt:ro
-      - /home/pi/dotfiles/salt/pillar:/home/salt/data/srv/pillar:ro
+      - /home/mafro/dotfiles/salt:/home/salt/data/srv/salt:ro
+      - /home/mafro/dotfiles/salt/pillar:/home/salt/data/srv/pillar:ro
       - keys-data:/home/salt/data/keys
       - ./logs:/home/salt/data/logs
       - ./config:/home/salt/data/config
       - ./1password-connect/salt:/var/cache/salt/master/extmods
     extra_hosts:
-      ringil: 192.168.1.198
+      locke: 192.168.1.198
     depends_on:
       - 1password-api
 
