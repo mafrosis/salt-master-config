@@ -1,4 +1,4 @@
-ARG SALT_MASTER_VERSION=3005.1_2
+ARG SALT_MASTER_VERSION
 
 FROM ghcr.io/cdalvaro/docker-salt-master:${SALT_MASTER_VERSION}
 
