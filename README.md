@@ -93,6 +93,25 @@ ext_pillar:
       vault_id: b6hmle4xxxxxxxxxxxxy4lcwza
 ```
 
+### Authentication
+
+A connect client token should be created and added to the `ext_pillar.conf` file shown above.
+```
+> op connect token create "$(hostname)-connect" --server ringil --vault Homelab
+eyJhbGciOiJFUzI1...snip
+```
+
+Find your vault ID with the following:
+```
+> op vault list
+ID                            NAME
+b6hmle4xxxxxxxxxxxxx4lcwza    Homelab
+h5d36nexxxxxxxxxxxxxgxusqi    Personal
+dlhabvtxxxxxxxxxxxxx6needq    Work
+```
+
+### Testing
+
 Test the external pillar is working with the following command, which connects from the current
 host to the salt master to pull pillar data:
 ```
