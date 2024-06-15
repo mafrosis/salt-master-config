@@ -5,11 +5,7 @@ volumes:
 
 services:
   salt-master:
-    image: mafrosis/docker-salt-master:${SALT_MASTER_VERSION}
-    build:
-      context: .
-      args:
-        SALT_MASTER_VERSION: ${SALT_MASTER_VERSION}
+    image: ghcr.io/cdalvaro/docker-salt-master:${SALT_MASTER_VERSION}
     restart: unless-stopped
     ports:
       - 4505:4505
@@ -19,6 +15,7 @@ services:
       - SALT_LOG_LEVEL
       - SALT_LOG_ROTATE_FREQUENCY=weekly
       - SALT_LOG_ROTATE_RETENTION=4
+      - PYTHON_PACKAGES=onepasswordconnectsdk==${_1PASSWORD_CONNECT_SDK_VERSION}
     volumes:
       - /home/mafro/dotfiles/salt:/home/salt/data/srv/salt:ro
       - /home/mafro/dotfiles/salt/pillar:/home/salt/data/srv/pillar:ro
