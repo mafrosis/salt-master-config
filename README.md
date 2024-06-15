@@ -78,6 +78,14 @@ sudo /usr/bin/salt-minion -l debug
 docker compose exec salt-master cat /etc/salt/master
 ```
 
+## Secrets
+
+To make another secret available in the pillar, add it to the "Homelab" vault in 1password. This
+secret will be fetched at run time from `1password-connect`, which runs locally as part of this
+compose project.
+
+A multiline secret should be created using a 1Password Secure Note.
+
 
 ## 1Password Connect
 
