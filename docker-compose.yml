@@ -1,6 +1,8 @@
 ---
 volumes:
-  keys-data: {}
+  keys-data:
+    labels:
+      net.mafro.kopia: true
   1pass-data: {}
 
 services:
